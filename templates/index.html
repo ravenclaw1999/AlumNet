@@ -4,48 +4,53 @@
 	<title>AlumNet</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link rel=stylesheet href="style.css" />
+    <link rel=stylesheet href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="https://5000-c253d8db-6016-469d-ae42-2e175842c32e.us-east1.cloudshell.dev/static/images/logo.png" type="image/gif">
 </head>
 
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">AlumNet</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" href="#">Alumi</a>
-				<a class="nav-item nav-link" href="/articles">Articles</a>
-				<a class="nav-item nav-link" href="/login">Login</a>
-			</div>
-		</div>
-	</nav>
-	<br />
-	<!-- <form>
-		<input type="text" name="nickname" placeholder="Enter your nickname"/>
-		<input type="submit" value="Submit"/>
-        </form> -->
+<body style="font-family: 'Josefin Slab', serif;">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="static/images/logo.png" width="50"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/alum">Alum</a>
+                    <a class="nav-item nav-link" href="/articles">Articles</a>
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     
-    <div class="container">
+    <!-- <div class="container">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 			</ol>
-			<div class="carousel-inner">
+			<div class="carousel-inner" >
 				<div class="carousel-item active">
 					<img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="First slide" height = "500" width ="auto">
 		        </div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="Second slide" height = "500" width ="auto">
-		            </div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="Third slide" height = "500" width ="auto">
-		                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="Second slide" height = "500" width ="auto">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="Third slide" height = "500" width ="auto">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://www.computersciencedegreehub.com/wp-content/uploads/2016/02/what-is-coding-1024x683.jpg" alt="Third slide" height = "500" width ="auto">
+                </div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,7 +61,57 @@
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
-                </div>
+            </div> -->
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" height = "80%" width ="100%" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>Coding</h1>
+                <p>On the first day, we learned how to code in python.</p>
+                <p><a class="btn btn-lg btn-primary" href="https://github.com/upperlinecode/john-jacob-python-string-methods" role="button" target="_blank">Go to Github</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide" src="static/images/mural.png" height = "80%" width ="100%" alt="Second slide">
+            <div class="container">
+              <div class="carousel-caption" style="color: DarkBlue;">
+                <h1>First Group Mural</h1>
+                <p>On July 13th, the Goldman Sachs cohort concocted the greatest piece of art ever!</p>
+                <p><a class="btn btn-lg btn-primary" href="https://www.metmuseum.org/" role="button" target="_blank">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide" src="static/images/image.png" height = "80%" width ="100%" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption text-right" style="color: red;">
+                <h1>Picture Day</h1>
+                <p>The Goldman Sachs group spot owls at daylight.</p>
+                <p><a class="btn btn-lg btn-primary" href="https://harrypotter.fandom.com/wiki/Owl" role="button" target="_blank">Browse gallery</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -6,18 +6,20 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel=stylesheet href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://5000-c253d8db-6016-469d-ae42-2e175842c32e.us-east1.cloudshell.dev/static/images/logo.png" type="image/gif">
 </head>
 
-<body>
+<body style="background-color: #FFEFBD; font-family: 'Josefin Slab', serif;">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="index"><img src="static/images/logo.png" width="50"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link" href="/index">Home</a>
-				<a class="nav-item nav-link" href="#">Alum</a>
+				<a class="nav-item nav-link" href="/alum">Alum</a>
 				<a class="nav-item nav-link" href="/articles">Articles</a>
 				<a class="nav-item nav-link active" href="#">Login</a> <span class="sr-only">(current)</span>
 			</div>
@@ -67,7 +69,7 @@
             
             <div class="col-sm-5">
                 <h1>Login</h1>
-                <form method="post" action="/bio">
+                <form method="post" action="/login">
                     <div class="form-group col-md-12 my-1">
                         <label for="exampleInputEmail1">Username</label>
                         <input name="username" type="text" class="form-control">			
