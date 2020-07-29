@@ -30,32 +30,48 @@
 		</div>
 	</nav>
 	<br />
-    <div class="row">
-        <label for="image" class="col-sm-6">
-        <img class="bio-pic" src="{{ user.image_url }}" width="200" style="
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px;
-            width: 150px;"/>
-            <br /><br />
-        </label>
-        <div class="col-sm-4" style="border: 5px solid #ddd;">
-            <br>
-            <h2>Name: {{user.name}}</h2>
-            <h2>Username: {{user.username}}</h2>
-            <h2>Email: {{user.email}}</h2>
-            <h2>Cohort: {{user.cohort}}</h2>
-            <h2>Date Graduated: {{user.grad_year}}</h2>
-            <h2>College: {{user.college}}</h2>
-            <h2>Major: {{user.major}}</h2>
-            <h2>Career Aspirations: {{user.intended_major}}
-            <h2>Birthday: {{user.birthday}}</h2>
-            <h2>Bio: {{user.bio}}</h2>
+        <center>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <label for="image">
+                <img class="bio-pic" src="{{ user.image_url }}" width="200" style="
+                    border-radius: 50%;
+                    text-align: center;"/>
+                    <br /><br />
+                </label>
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+    </div>
+    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4" style="border: 5px solid #ddd;">
+                <br>
+                <h4>Name: {{user.name}}</h4>
+                <h4>Username: {{user.username}}</h4>
+                <h4>Email: {{user.email}}</h4>
+                <h4>Cohort: {{user.cohort}}</h4>
+                <h4>Date Graduated: {{user.grad_year}}</h4>
+                <h4>College: {{user.college}}</h4>
+                <h4>Major: {{user.major}}</h4>
+                <h4>Career Aspirations: {{user.intended_career}}</h4>
+                <h4>Birthday: {{user.birthday}}</h4>
+                <h4>Bio: {{user.bio}}</h4>
+            </div>
+            <div class="col-sm-4">
+            </div>
         </div>
     </div>
     <br>
     <br>
-    <h2>Posts: </h2>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Posts: </h2>
     <div class="container">
         {% for post in posts%}
             <div class="card" style="width: 100%;">
