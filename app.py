@@ -62,7 +62,7 @@ def login():
                 users.insert({'username': username, 'password': str(bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()), 'utf-8'), 'name': name, 'email' : email, 'grad_year': grad_year})
                 session['name'] = name
                 session['username'] = username
-                return redirect(url_for('update-info'))
+                return redirect(url_for('updateInfo'))
             return 'That username already exists! Try logging in.'
 
 # BIO
