@@ -19,7 +19,11 @@
 				<a class="nav-item nav-link" href="index">Home</a>
 				<a class="nav-item nav-link" href="alum">Alum</a>
 				<a class="nav-item nav-link" href="articles">Articles</a>
-				<a class="nav-item nav-link active" href="login">Logout</a> 
+				{% if session: %}
+                    <a class="nav-item nav-link" href="/login">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                {% endif %}
 			</div>
 		</div>
 	</nav>
@@ -40,8 +44,11 @@
             <h2>Name: {{user.name}}</h2>
             <h2>Username: {{user.username}}</h2>
             <h2>Email: {{user.email}}</h2>
-            <h2>Graduation: {{user.grad_year}}</h2>
             <h2>Cohort: {{user.cohort}}</h2>
+            <h2>Date Graduated: {{user.grad_year}}</h2>
+            <h2>College: {{user.college}}</h2>
+            <h2>Major: {{user.major}}</h2>
+            <h2>Career Aspirations: {{user.intended_major}}
             <h2>Birthday: {{user.birthday}}</h2>
             <h2>Bio: {{user.bio}}</h2>
             <div class="container">
@@ -52,13 +59,28 @@
                         </form>
                     </div>
                     <div class="col">
-                        <form action="/makepost">
+                        <form action="/make-post">
                             <input type="submit" value="Create a Post" />
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <br>
+    <br>
+    <h2>Posts: </h2>
+    <div class="container">
+        {% for post in posts%}
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="card-title">Title: {{post.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Date Posted: {{post.date.strftime('%Y-%m-%d')}}</h6>
+                    <p class="card-text">{{post.message}}</p>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
