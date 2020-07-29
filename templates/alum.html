@@ -38,7 +38,8 @@
 
         <div class="container">
         {% for user in users %}
-            <div class="card" style="width: 18rem;">
+        <center>
+            <div class="card" style="width: 18rem; text-align: center;">
                 <div class="card-body">
                     <h5 class="card-title">{{user.name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Email: {{user.email}}</h6>
@@ -51,6 +52,7 @@
                     <a href="/profile/{{user.username}}" class="card-link">Profile</a>
                 </div>
             </div>
+            </center>
             <br>
         {% endfor %}
     </div>
