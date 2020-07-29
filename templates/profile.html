@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>AlumNet</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel=stylesheet href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://5000-c253d8db-6016-469d-ae42-2e175842c32e.us-east1.cloudshell.dev/static/images/logo.png" type="image/gif">         
+
+</head>
+<body style="background-color: #FFEFBD; font-family: 'Josefin Slab', serif;">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index"><img src="/static/images/logo.png" width="50"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/index">Home</a>
+				<a class="nav-item nav-link" href="/alum">Alum</a>
+				<a class="nav-item nav-link" href="/articles">Articles</a>
+				{% if session: %}
+                    <a class="nav-item nav-link" href="/login">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                {% endif %}
+			</div>
+		</div>
+	</nav>
+	<br />
+    <div class="row">
+        <label for="image" class="col-sm-6">
+        <input type="file" name="image" id="image" style="display:none;"/>
+        <img class="bio-pic" src="https://images.unsplash.com/photo-1567538737566-184fdf777891?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" width="200" style="
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;"/>
+            <br /><br />
+        <p>Click on the image to add a profile picture.</p>
+        </label>
+        <div class="col-sm-4" style="border: 5px solid #ddd;">
+            <br>
+            <h2>Name: {{user.name}}</h2>
+            <h2>Username: {{user.username}}</h2>
+            <h2>Email: {{user.email}}</h2>
+            <h2>Cohort: {{user.cohort}}</h2>
+            <h2>Date Graduated: {{user.grad_year}}</h2>
+            <h2>College: {{user.college}}</h2>
+            <h2>Major: {{user.major}}</h2>
+            <h2>Career Aspirations: {{user.intended_major}}
+            <h2>Birthday: {{user.birthday}}</h2>
+            <h2>Bio: {{user.bio}}</h2>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h2>Posts: </h2>
+    <div class="container">
+        {% for post in posts%}
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="card-title">Title: {{post.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Date Posted: {{post.date.strftime('%Y-%m-%d')}}</h6>
+                    <p class="card-text">{{post.message}}</p>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
