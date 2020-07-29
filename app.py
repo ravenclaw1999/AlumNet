@@ -4,20 +4,28 @@ from flask import Flask
 from flask import render_template, request, session, redirect, url_for
 from flask_pymongo import PyMongo
 import bcrypt
+import datetime
+
 # -- Initialization section --
 app = Flask(__name__)
+
 # name of database
 app.config['MONGO_DBNAME'] = 'alumnet'
+
 # URI of database
 app.config['MONGO_URI'] = "mongodb+srv://admin:Fqt5QCXcayFPRj9Q@cluster0.k1fjy.mongodb.net/alumnet?retryWrites=true&w=majority"
+
 mongo = PyMongo(app)
+
 app.secret_key='5mJDS*$26loJ'
+
 # -- Routes section --
 # HOME
 @app.route('/')
 @app.route('/index', methods = ["GET", "POST"])
 def index():
     return render_template("index.html")
+
 # LOGIN/SIGNUP
 @app.route('/login', methods = ["GET", "POST"])
 def login():
@@ -51,17 +59,21 @@ def login():
                 session['username'] = username
                 return "Welcome!  You are logged in as " + session["name"] + ". Go to <a href='/update-info'>Update Info</a>."
             return 'That username already exists! Try logging in.'
+
 # BIO
 @app.route('/bio', methods=["GET", "POST"])
 def bio():
     users = mongo.db.users
+    post_collection = mongo.db.posts
     if 'name' in session:
         username = session['username']
         user = users.find_one({'username': username})
-        return render_template("bio.html", user = user)
+        posts = post_collection.find({'author': username})
+        return render_template("bio.html", user = user, posts = posts)
     else:
         return "Please log in."
-# Update Info
+
+# UPDATE INFO
 @app.route('/update-info', methods = ["GET","POST"])
 def updateInfo():
     users = mongo.db.users
@@ -73,42 +85,59 @@ def updateInfo():
         email = request.form["email"]
         bio = request.form["bio"]
         birthday = request.form["birthday"]
+        college = request.form["college"]
+        major = request.form["major"]
+        intended_career = request.form["intended_career"]
         cohort = request.form["cohort"]
         update = users.update_many(
             {"username": username}, 
             {
-                "$set": {"name": name, "email": email, "bio": bio, "birthday": birthday, "cohort": cohort}
+                "$set": {"name": name, "email": email, "bio": bio, "birthday": birthday, "cohort": cohort, "college": college, "major": major, "intended_career": intended_career}
             })
         return "Your info has been updated, " + session["name"] + ". Go to <a href='/bio'>bio</a> to see new updates."
+
 # PROFILE_LIST
 @app.route('/alum')
 def alum():
     collection = mongo.db.users
     users = collection.find({})
     return render_template("alum.html", users = users)
+
 # ARTICLES
 @app.route('/articles')
 def articles():
     articles = mongo.db.articles
     return render_template("articles.html")
+
+# PROFILE
+@app.route('/profile/<username>', methods=["GET", "POST"])
+def profile(username):
+    users = mongo.db.users
+    post_collection = mongo.db.posts
+    user = users.find_one({'username': username})
+    posts = post_collection.find({'author': username})
+    return render_template("profile.html", user = user, posts = posts)
+
 # MAKE POST
-@app.route('/makepost', methods=["GET", "POST"])
+# Code borrowed from Daniel Choi and Alice Yeh
+@app.route('/make-post', methods=["GET", "POST"])
 def makepost():
-    print("Hi")
-    if request.method == "POST":
-        post_collection = mongo.db.posts
-        logged_in_username = session['username']
-        # user = user_collection.find_one({"username" : logged_in_username})
-        title = request.form["post-title"]
-        message = request.form["post-message"]
-        # date = datetime.now()
-        post = {
-            "title" : title,
-            "message" : message,
-            # "date" : date,
-            "author" : logged_in_username
-        }
-        post_collection.insert(post)
-        return "It worked"
+    if 'name' in session:
+        if request.method == "POST":
+            post_collection = mongo.db.posts
+            username = session['username']
+            title = request.form["post-title"]
+            message = request.form["post-message"]
+            date = datetime.datetime.now()
+            post = {
+                "title" : title,
+                "message" : message,
+                "date" : date,
+                "author" : username
+            }
+            post_collection.insert(post)
+            return "Successfully created. Go to <a href='/bio'>bio</a> to see new updates."
+        else:
+            return render_template("post.html")
     else:
-        return render_template("post.html")
+        return "Please log in."
