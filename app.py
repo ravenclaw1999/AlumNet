@@ -47,7 +47,7 @@ def login():
             if bcrypt.hashpw(password.encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
                 session['name'] = login_user["name"]
                 session['username'] = login_user["username"]
-                return "Welcome!  You are logged in as " + login_user["name"] + ". Go to <a href='/bio'>bio</a>."
+                return redirect(url_for('bio'))
             else:
                 return 'Invalid username/password combination'
         elif request.form["action"] == "Sign Up":
@@ -62,7 +62,7 @@ def login():
                 users.insert({'username': username, 'password': str(bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()), 'utf-8'), 'name': name, 'email' : email, 'grad_year': grad_year})
                 session['name'] = name
                 session['username'] = username
-                return "Welcome!  You are logged in as " + session["name"] + ". Go to <a href='/update-info'>Update Info</a>."
+                return redirect(url_for('update-info'))
             return 'That username already exists! Try logging in.'
 
 # BIO
@@ -103,7 +103,7 @@ def updateInfo():
             {
                 "$set": {"name": name, "email": email, "bio": bio, "birthday": birthday, "cohort": cohort, "college": college, "major": major, "intended_career": intended_career, "image_url": image_url}
             })
-        return "Your info has been updated, " + session["name"] + ". Go to <a href='/bio'>bio</a> to see new updates."
+        return redirect(url_for('bio'))
 
 # PROFILE_LIST
 @app.route('/alum')
@@ -145,7 +145,7 @@ def makepost():
                 "author" : username
             }
             post_collection.insert(post)
-            return "Successfully created. Go to <a href='/bio'>bio</a> to see new updates."
+            return redirect(url_for('bio'))
         else:
             return render_template("post.html")
     else:
