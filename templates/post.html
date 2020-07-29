@@ -21,36 +21,31 @@
 				<a class="nav-item nav-link" href="/index">Home</a>
 				<a class="nav-item nav-link" href="/alum">Alum</a>
 				<a class="nav-item nav-link active" href="#">Articles</a> <span class="sr-only">(current)</span>
-				<a class="nav-item nav-link" href="/login">Login</a>
+				{% if session: %}
+                    <a class="nav-item nav-link" href="/login">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                {% endif %}
 			</div>
 		</div>
 	</nav>
 	<br />
-	<!-- <form>
-		<input type="text" name="nickname" placeholder="Enter your nickname"/>
-		<input type="submit" value="Submit"/>
-        </form> -->
-        <h1>Trending Articles</h1>
-
+        <h1>Write a Post!</h1> <br>
         <div class="container">
-            <form method="post" action="/makepost">
+            <form method="post" action="/make-post">
                 <div class="form-group col-md-12 my-1">
-                    <label for="name">Title</label>
-                    <input name="post-title" type="text" class="form-control">
+                    <label for="name">Title: </label>
+                    <input name="post-title" type="text">
                 </div>
                 <div class="form-group col-md-12 my-1">
-                    <label for="message">Message</label>
-                    <input name="post-message" type="text" class="form-control">                
+                    <label for="message">Message: </label>
+                    <textarea id="post-message" name="post-message" rows="5" cols="60"></textarea>              
                 </div>
-                <input type="submit" value="post" class="btn btn-primary"/>
+                <input type="submit" value="Post" class="btn btn-primary"/>
             </form>
         </div>
-
-
-
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
 </html>
