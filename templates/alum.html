@@ -44,7 +44,11 @@
                         College: {{user.college}} <br>
                         Major: {{user.major}} <br>
                     </p>
-                    <a href="/profile/{{user.username}}" class="card-link">Profile</a>
+                    {% if session: %}
+                        <a href="/bio" class="card-link">Profile</a>
+                    {% else %}
+                        <a href="/profile/{{user.username}}" class="card-link">Profile</a>
+                    {% endif %}
                 </div>
             </div>
             <br>
