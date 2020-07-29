@@ -88,6 +88,10 @@ def updateInfo():
     else: 
         name = request.form["name"]
         email = request.form["email"]
+        if request.form["image_url"] == "":
+            image_url = "https://media-exp1.licdn.com/dms/image/C4E0BAQE6lQtEKdA5dw/company-logo_200_200/0?e=2159024400&v=beta&t=UeYB5MUD2arx7SRkE4rd9FU-2dMIJAq83Ne8RonjrwE"
+        else:
+            image_url = request.form["image_url"]
         bio = request.form["bio"]
         birthday = request.form["birthday"]
         college = request.form["college"]
@@ -97,7 +101,7 @@ def updateInfo():
         update = users.update_many(
             {"username": username}, 
             {
-                "$set": {"name": name, "email": email, "bio": bio, "birthday": birthday, "cohort": cohort, "college": college, "major": major, "intended_career": intended_career}
+                "$set": {"name": name, "email": email, "bio": bio, "birthday": birthday, "cohort": cohort, "college": college, "major": major, "intended_career": intended_career, "image_url": image_url}
             })
         return "Your info has been updated, " + session["name"] + ". Go to <a href='/bio'>bio</a> to see new updates."
 

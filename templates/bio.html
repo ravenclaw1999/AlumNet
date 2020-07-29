@@ -30,14 +30,13 @@
 	<br />
     <div class="row">
         <label for="image" class="col-sm-6">
-        <input type="file" name="image" id="image" style="display:none;"/>
-        <img class="bio-pic" src="https://images.unsplash.com/photo-1567538737566-184fdf777891?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" width="200" style="
+        <!-- <input type="file" name="image" id="image" style="display:none;"/> -->
+        <img class="bio-pic" src="{{ user.image_url }}" width="200" style="
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 5px;
             width: 150px;"/>
             <br /><br />
-        <p>Click on the image to add a profile picture.</p>
         </label>
         <div class="col-sm-4" style="border: 5px solid #ddd;">
             <br>
