@@ -5,19 +5,24 @@ from flask import render_template, request, session, redirect, url_for
 from flask_pymongo import PyMongo
 import bcrypt
 import datetime
+import os
+from dotenv import load_dotenv
 
 # -- Initialization section --
 app = Flask(__name__)
+
+#SECRET KEY
+load_dotenv()
+app.secret_key = os.getenv("KEY")
 
 # name of database
 app.config['MONGO_DBNAME'] = 'alumnet'
 
 # URI of database
-app.config['MONGO_URI'] = "mongodb+srv://admin:Fqt5QCXcayFPRj9Q@cluster0.k1fjy.mongodb.net/alumnet?retryWrites=true&w=majority"
+app.config['MONGO_URI'] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
-app.secret_key='5mJDS*$26loJ'
 
 # -- Routes section --
 # HOME
