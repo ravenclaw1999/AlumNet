@@ -30,16 +30,6 @@
 	</nav>
 	<br />
     <div class="row">
-        {% if user.image_url == "": %}
-        <label for="image" class="col-sm-6">
-        <img class="bio-pic" src=""https://media-exp1.licdn.com/dms/image/C4E0BAQE6lQtEKdA5dw/company-logo_200_200/0?e=2159024400&v=beta&t=UeYB5MUD2arx7SRkE4rd9FU-2dMIJAq83Ne8RonjrwE"" width="200" style="
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px;
-            width: 150px;"/>
-            <br /><br />
-        </label>
-        {% else %}
         <label for="image" class="col-sm-6">
         <img class="bio-pic" src="{{ user.image_url }}" width="200" style="
             border: 1px solid #ddd;
@@ -48,7 +38,6 @@
             width: 150px;"/>
             <br /><br />
         </label>
-        {% endif %}
         <div class="col-sm-4" style="border: 5px solid #ddd;">
             <br>
             <h2>Name: {{user.name}}</h2>
