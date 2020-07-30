@@ -21,7 +21,7 @@
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link" href="/index">Home</a>
-				<a class="nav-item nav-link active" href="#">Alum</a>
+				<a class="nav-item nav-link active" href="#">Alumni</a>
 				<a class="nav-item nav-link" href="/articles">Articles</a>
 				{% if session: %}
                     <a class="nav-item nav-link" href="/bio">My Bio</a>
@@ -47,6 +47,7 @@
             <div class="card mb-5" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{user.name}}</h5>
+                    <img class="bio-pic" src="{{ user.image_url }}" width="200"/><br><br>
                     <h6 class="card-subtitle mb-2 text-muted">Email: {{user.email}}</h6>
                     <p class="card-text">
                         Cohort: {{user.cohort}} <br>
